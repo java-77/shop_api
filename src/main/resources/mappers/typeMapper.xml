@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.fh.mapper.TypeMapper">
+
+    <select id="queryList" resultType="com.fh.model.Type">
+        select * from shop_type
+    </select>
+
+    <select id="queryListByPid" resultType="com.fh.model.Type">
+        select * from shop_type where pid=#{pid}
+    </select>
+
+    <insert id="addType" parameterType="com.fh.model.Type" useGeneratedKeys="true" keyColumn="id" keyProperty="id">
+        insert into shop_type (name, pid, isDel, createDate)
+        values (#{name},#{pid},0,sysDate())
+    </insert>
+
+    <select id="getTypeById" resultType="com.fh.model.Type">
+        select * from shop_type where id=#{id}
+    </select>
+
+    <update id="updateType">
+        update shop_type set name=#{name},pid=#{pid},isDel=#{isDel},updateDate=sysDate(),auther=#{auther}
+        where id=#{id}
+    </update>
+
+</mapper>
