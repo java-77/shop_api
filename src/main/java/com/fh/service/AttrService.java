@@ -13,4 +13,8 @@ public interface AttrService {
     List<Attr> queryList();
 
     void addAttr(Attr attr);
+
+    Attr queryAttrById(Integer id);
+
+    void updateAttr(Attr attr);
 }

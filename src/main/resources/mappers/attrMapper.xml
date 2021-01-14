@@ -14,4 +14,14 @@
         values (#{name},#{nameCH},#{typeId},#{formType},#{isSKU},0,sysDate(),sysDate(),#{auther})
     </insert>
 
+    <select id="queryAttrById" resultType="com.fh.model.Attr">
+        select * from shop_attr where id=#{id}
+    </select>
+
+    <update id="updateAttr">
+        update shop_attr set name=#{name},nameCH=#{nameCH},typeId=#{typeId},
+        formType=#{formType},isSKU=#{isSKU},isDel=#{isDel},updateDate=sysDate()
+        where id=#{id}
+    </update>
+
 </mapper>

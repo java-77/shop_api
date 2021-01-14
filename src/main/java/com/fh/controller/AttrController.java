@@ -39,4 +39,30 @@ public class AttrController {
         attrService.addAttr(attr);
         return ResultData.getResult(ResultEnum.SUCCESS,attr.getId());
     }
+    /**
+     * url:      http://localhost:8081/attr/queryAttrById
+     * 请求方式： get
+     * 参数：     {'id':Integer}
+     * return    {"code": 200,"message": "成功","data": {id,name,nameCH,typeId,formType,isSKU,isDel,createDate,updateDate,auther}}
+     */
+    @GetMapping("queryAttrById")
+    public ResultData queryAttrById(Integer id){
+        return ResultData.getResult(ResultEnum.SUCCESS,attrService.queryAttrById(id));
+    }
+    /**
+     * url:      http://localhost:8081/attr/updateAttr
+     * 请求方式： post
+     * 参数：     {'id必传':Integer,'name':String,'nameCH':String,'typeId':Integer,'formType':String,'isSKU':Integer}
+     * return    {"code": 200,"message": "成功"}
+     */
+    @PostMapping("updateAttr")
+    public ResultData updateAttr(Attr attr){
+        if (attr.getId()==null){
+            return ResultData.getResult(ResultEnum.ERROR_PARAM);
+        }
+        attrService.updateAttr(attr);
+        return ResultData.getResult(ResultEnum.SUCCESS);
+    }
+
+
 }
