@@ -11,4 +11,6 @@ import java.util.List;
 public interface AttrService {
 
     List<Attr> queryList();
+
+    void addAttr(Attr attr);
 }

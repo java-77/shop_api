@@ -22,4 +22,9 @@ public class AttrServiceImpl implements AttrService {
     public List<Attr> queryList() {
         return attrMapper.queryList();
     }
+
+    @Override
+    public void addAttr(Attr attr) {
+        attrMapper.addAttr(attr);
+    }
 }

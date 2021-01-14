@@ -5,12 +5,7 @@ import com.fh.common.ResultEnum;
 import com.fh.model.Attr;
 import com.fh.service.AttrService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @author junjie
@@ -32,5 +27,16 @@ public class AttrController {
     @GetMapping("queryList")
     public ResultData queryList(){
         return ResultData.getResult(ResultEnum.SUCCESS,attrService.queryList());
+    }
+    /**
+     * url:      http://localhost:8081/attr/addAttr
+     * 请求方式： post
+     * 参数：     {'name':String,'nameCH':String,'typeId':Integer,'formType':String,'isSKU':Integer}
+     * return    {"code": 200,"message": "成功","data": Integer}
+     */
+    @PostMapping("addAttr")
+    public ResultData addAttr(Attr attr){
+        attrService.addAttr(attr);
+        return ResultData.getResult(ResultEnum.SUCCESS,attr.getId());
     }
 }

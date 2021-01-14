@@ -11,4 +11,6 @@ import java.util.List;
 public interface AttrMapper {
 
     List<Attr> queryList();
+
+    void addAttr(Attr attr);
 }
