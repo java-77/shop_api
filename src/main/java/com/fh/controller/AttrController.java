@@ -4,6 +4,7 @@ import com.fh.common.ResultData;
 import com.fh.common.ResultEnum;
 import com.fh.model.Attr;
 import com.fh.service.AttrService;
+import com.fh.utils.PageUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,17 +22,18 @@ public class AttrController {
 
     /**
      * url:      http://localhost:8081/attr/queryList
-     * 请求方式： get
-     * return    {"code": 200,"message": "成功","data": [{id,name,nameCH,typeId,formType,isSKU,isDel,createDate,updateDate,auther}]}
+     * 请求方式： post
+     * return    {"code": 200,"message": "成功","data": PageUtils}
      */
-    @GetMapping("queryList")
-    public ResultData queryList(){
-        return ResultData.getResult(ResultEnum.SUCCESS,attrService.queryList());
+    @PostMapping("queryList")
+    public ResultData queryList(PageUtils pageUtils,Attr attr){
+        attrService.queryList(pageUtils,attr);
+        return ResultData.getResult(ResultEnum.SUCCESS,pageUtils);
     }
     /**
      * url:      http://localhost:8081/attr/addAttr
      * 请求方式： post
-     * 参数：     {'name':String,'nameCH':String,'typeId':Integer,'formType':String,'isSKU':Integer}
+     * 参数：     {'name':String,'nameCH':String,'typeId':Integer,'formType':Integer,'isSKU':Integer}
      * return    {"code": 200,"message": "成功","data": Integer}
      */
     @PostMapping("addAttr")

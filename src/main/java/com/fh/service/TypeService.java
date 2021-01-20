@@ -1,6 +1,7 @@
 package com.fh.service;
 
 import com.fh.model.Type;
+import com.fh.model.vo.TypeVo;
 
 import java.util.List;
 
@@ -17,4 +18,6 @@ public interface TypeService {
     void addType(Type type);
 
     void updateType(Type type);
+
+    List<TypeVo> queryListTem();
 }

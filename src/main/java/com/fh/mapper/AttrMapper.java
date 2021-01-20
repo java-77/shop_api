@@ -1,6 +1,8 @@
 package com.fh.mapper;
 
 import com.fh.model.Attr;
+import com.fh.utils.PageUtils;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -10,11 +12,14 @@ import java.util.List;
  */
 public interface AttrMapper {
 
-    List<Attr> queryList();
+    Long queryCount(@Param("attr") Attr attr);
+
+    List<Attr> queryList(@Param("pageUtils") PageUtils pageUtils,@Param("attr") Attr attr);
 
     void addAttr(Attr attr);
 
     Attr queryAttrById(Integer id);
 
     void updateAttr(Attr attrOld);
+
 }

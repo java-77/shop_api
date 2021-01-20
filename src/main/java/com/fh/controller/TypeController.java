@@ -3,6 +3,7 @@ package com.fh.controller;
 import com.fh.common.ResultData;
 import com.fh.common.ResultEnum;
 import com.fh.model.Type;
+import com.fh.model.vo.TypeVo;
 import com.fh.service.TypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -31,6 +32,22 @@ public class TypeController {
         List<Type> list = typeService.queryList();
         return ResultData.getResult(ResultEnum.SUCCESS,list);
     }
+
+    /**
+     * url:      http://localhost:8081/type/queryListTem
+     * 请求方式： get
+     * return    {"code": 200,"message": "成功","data": [{id,name,pid,isDel,createDate,updateDate,auther}]}
+     */
+    @GetMapping("queryListTem")
+    public ResultData queryListTem(){
+        List<TypeVo> list = typeService.queryListTem();
+        return ResultData.getResult(ResultEnum.SUCCESS,list);
+    }
+
+
+
+
+
     /**
      * url:      http://localhost:8081/type/queryListByPid
      * 请求方式： get

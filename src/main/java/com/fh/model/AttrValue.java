@@ -7,16 +7,14 @@ import java.util.Date;
 
 /**
  * @author junjie
- * @create 2021-01-14 20:15
+ * @create 2021-01-18 21:14
  */
-public class Attr {
+public class AttrValue {
+
     private Integer id;
     private String name;
     private String nameCH;
-    private Integer typeId;
-    private String typeName;
-    private Integer formType;       //0 下拉框     1 单选框      2  复选框   3  输入框
-    private Integer isSKU;
+    private Integer attrId;
     private Integer isDel;
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
@@ -50,36 +48,12 @@ public class Attr {
         this.nameCH = nameCH;
     }
 
-    public Integer getTypeId() {
-        return typeId;
+    public Integer getAttrId() {
+        return attrId;
     }
 
-    public void setTypeId(Integer typeId) {
-        this.typeId = typeId;
-    }
-
-    public String getTypeName() {
-        return typeName;
-    }
-
-    public void setTypeName(String typeName) {
-        this.typeName = typeName;
-    }
-
-    public Integer getFormType() {
-        return formType;
-    }
-
-    public void setFormType(Integer formType) {
-        this.formType = formType;
-    }
-
-    public Integer getIsSKU() {
-        return isSKU;
-    }
-
-    public void setIsSKU(Integer isSKU) {
-        this.isSKU = isSKU;
+    public void setAttrId(Integer attrId) {
+        this.attrId = attrId;
     }
 
     public Integer getIsDel() {

@@ -5,8 +5,23 @@
 
 <mapper namespace="com.fh.mapper.AttrMapper">
 
+    <sql id="attrWhere">
+        <where>
+            <if test="attr.name != null and attr.name  != '' ">
+                and sa.name like concat('%',#{attr.name},'%')
+            </if>
+        </where>
+    </sql>
+
+    <select id="queryCount" resultType="java.lang.Long">
+        select count(*) from shop_attr sa
+        <include refid="attrWhere"></include>
+    </select>
+
     <select id="queryList" resultType="com.fh.model.Attr">
-        select * from shop_attr
+        select sa.*,st.name as typeName from shop_attr sa left join shop_type st on sa.typeId=st.id
+        <include refid="attrWhere"></include>
+        limit #{pageUtils.startIndex},#{pageUtils.size}
     </select>
 
     <insert id="addAttr" useGeneratedKeys="true" keyProperty="id" keyColumn="id">

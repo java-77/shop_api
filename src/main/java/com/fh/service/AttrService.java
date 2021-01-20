@@ -1,6 +1,7 @@
 package com.fh.service;
 
 import com.fh.model.Attr;
+import com.fh.utils.PageUtils;
 
 import java.util.List;
 
@@ -10,7 +11,7 @@ import java.util.List;
  */
 public interface AttrService {
 
-    List<Attr> queryList();
+    void queryList(PageUtils pageUtils, Attr attr);
 
     void addAttr(Attr attr);
 

@@ -7,17 +7,18 @@ import java.util.Date;
 
 /**
  * @author junjie
- * @create 2021-01-14 20:15
+ * @create 2021-01-18 20:47
  */
-public class Attr {
+public class Product {
     private Integer id;
     private String name;
-    private String nameCH;
+    private String title;
+    private Integer bandId;
     private Integer typeId;
-    private String typeName;
-    private Integer formType;       //0 下拉框     1 单选框      2  复选框   3  输入框
-    private Integer isSKU;
-    private Integer isDel;
+    private String proDecs;
+    private int stocks;
+    private int sort;
+    private int isDel;
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
     private Date createDate;
@@ -42,12 +43,20 @@ public class Attr {
         this.name = name;
     }
 
-    public String getNameCH() {
-        return nameCH;
+    public String getTitle() {
+        return title;
     }
 
-    public void setNameCH(String nameCH) {
-        this.nameCH = nameCH;
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public Integer getBandId() {
+        return bandId;
+    }
+
+    public void setBandId(Integer bandId) {
+        this.bandId = bandId;
     }
 
     public Integer getTypeId() {
@@ -58,35 +67,35 @@ public class Attr {
         this.typeId = typeId;
     }
 
-    public String getTypeName() {
-        return typeName;
+    public String getProDecs() {
+        return proDecs;
     }
 
-    public void setTypeName(String typeName) {
-        this.typeName = typeName;
+    public void setProDecs(String proDecs) {
+        this.proDecs = proDecs;
     }
 
-    public Integer getFormType() {
-        return formType;
+    public int getStocks() {
+        return stocks;
     }
 
-    public void setFormType(Integer formType) {
-        this.formType = formType;
+    public void setStocks(int stocks) {
+        this.stocks = stocks;
     }
 
-    public Integer getIsSKU() {
-        return isSKU;
+    public int getSort() {
+        return sort;
     }
 
-    public void setIsSKU(Integer isSKU) {
-        this.isSKU = isSKU;
+    public void setSort(int sort) {
+        this.sort = sort;
     }
 
-    public Integer getIsDel() {
+    public int getIsDel() {
         return isDel;
     }
 
-    public void setIsDel(Integer isDel) {
+    public void setIsDel(int isDel) {
         this.isDel = isDel;
     }
 
